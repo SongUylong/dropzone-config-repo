@@ -68,6 +68,18 @@ spring:
           filters:
             - RewritePath=/api/notifications(?<segment>.*), /notifications$\{segment}
 
+        - id: search-service-api
+          uri: lb://SEARCH-SERVICE
+          predicates:
+            - Path=/api/search, /api/search/**
+          filters:
+            - RewritePath=/api/search(?<segment>.*), /search$\{segment}
+
+        - id: search-service-direct
+          uri: lb://SEARCH-SERVICE
+          predicates:
+            - Path=/search, /search/**
+
 eureka:
   instance:
     prefer-ip-address: true
