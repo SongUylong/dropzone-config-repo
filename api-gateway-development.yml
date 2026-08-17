@@ -33,6 +33,13 @@ spring:
           filters:
             - RewritePath=/api/events(?<segment>.*), /events$\{segment}
 
+        - id: inventory-service-api
+          uri: lb://INVENTORY-SERVICE
+          predicates:
+            - Path=/api/inventory, /api/inventory/**
+          filters:
+            - RewritePath=/api/inventory(?<segment>.*), /inventory$\{segment}
+
         - id: order-service-api
           uri: lb://ORDER-SERVICE
           predicates:
