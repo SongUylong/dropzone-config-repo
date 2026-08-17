@@ -54,6 +54,20 @@ spring:
           filters:
             - RewritePath=/api/payments(?<segment>.*), /payments$\{segment}
 
+        - id: audit-service-api
+          uri: lb://AUDIT-SERVICE
+          predicates:
+            - Path=/api/audit, /api/audit/**
+          filters:
+            - RewritePath=/api/audit(?<segment>.*), /audit$\{segment}
+
+        - id: notification-service-api
+          uri: lb://NOTIFICATION-SERVICE
+          predicates:
+            - Path=/api/notifications, /api/notifications/**
+          filters:
+            - RewritePath=/api/notifications(?<segment>.*), /notifications$\{segment}
+
 eureka:
   instance:
     prefer-ip-address: true
