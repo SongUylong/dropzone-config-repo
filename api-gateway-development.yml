@@ -80,6 +80,11 @@ spring:
           predicates:
             - Path=/search, /search/**
 
+        - id: chaos-lab-api
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/api/chaos, /api/chaos/**, /chaos, /chaos/**
+
 eureka:
   instance:
     prefer-ip-address: true
