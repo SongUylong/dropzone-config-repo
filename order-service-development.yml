@@ -28,3 +28,35 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      paymentService:
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 20
+        minimumNumberOfCalls: 20
+        failureRateThreshold: 50
+        waitDurationInOpenState: 30000ms
+        permittedNumberOfCallsInHalfOpenState: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+  retry:
+    instances:
+      paymentService:
+        maxAttempts: 1
+        waitDuration: 100ms
+  timelimiter:
+    instances:
+      paymentService:
+        timeoutDuration: 2s
+  bulkhead:
+    instances:
+      paymentService:
+        maxConcurrentCalls: 20
+        maxWaitDuration: 100ms
+  ratelimiter:
+    instances:
+      paymentService:
+        limitForPeriod: 100
+        limitRefreshPeriod: 1s
+        timeoutDuration: 100ms
