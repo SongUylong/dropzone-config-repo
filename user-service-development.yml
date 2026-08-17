@@ -1,0 +1,4 @@
+database: dropzone_user
+redis: localhost
+eureka: eureka-server
+logging: INFO

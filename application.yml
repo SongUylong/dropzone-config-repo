@@ -1,0 +1,6 @@
+# Base application configuration for all services/profiles
+spring:
+  eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka/

@@ -1,0 +1,4 @@
+database: dropzone_payment
+redis: localhost
+eureka: eureka-server
+logging: INFO

@@ -1,0 +1,4 @@
+database: dropzone_user_staging
+redis: redis-staging
+eureka: eureka-server
+logging: WARN
