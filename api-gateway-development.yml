@@ -47,6 +47,13 @@ spring:
           filters:
             - RewritePath=/api/orders(?<segment>.*), /orders$\{segment}
 
+        - id: payment-service-api
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/api/payments, /api/payments/**
+          filters:
+            - RewritePath=/api/payments(?<segment>.*), /payments$\{segment}
+
 eureka:
   instance:
     prefer-ip-address: true
