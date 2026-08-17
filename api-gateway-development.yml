@@ -83,7 +83,7 @@ spring:
         - id: chaos-lab-api
           uri: lb://ORDER-SERVICE
           predicates:
-            - Path=/api/chaos, /api/chaos/**, /chaos, /chaos/**, /test-report, /api/test-report, /testing/report
+            - Path=/api/chaos, /api/chaos/**, /chaos, /chaos/**, /test-report, /api/test-report, /testing/report, /ci-pipeline, /api/ci-pipeline, /ci/**
 
 eureka:
   instance:
