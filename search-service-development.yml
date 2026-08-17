@@ -5,7 +5,7 @@ spring:
   application:
     name: SEARCH-SERVICE
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: ${KAFKA_SERVERS:localhost:9092}
     consumer:
       group-id: search-service-group
       auto-offset-reset: earliest
@@ -13,5 +13,5 @@ spring:
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
 opensearch:
-  url: http://localhost:9200
+  url: ${OPENSEARCH_URL:http://localhost:9200}
   index: events

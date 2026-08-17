@@ -1,5 +1,5 @@
 minio:
-  url: http://localhost:9000
+  url: ${MINIO_URL:http://localhost:9000}
   access-key: minioadmin
   secret-key: minioadmin
   buckets:
@@ -10,7 +10,7 @@ minio:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/dropzone_event
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/dropzone_event}
     username: dropzone
     password: dropzone_password
     driver-class-name: org.postgresql.Driver

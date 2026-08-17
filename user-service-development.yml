@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/dropzone_user
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/dropzone_user}
     username: dropzone
     password: dropzone_password
     driver-class-name: org.postgresql.Driver
